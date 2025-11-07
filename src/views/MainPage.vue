@@ -21,7 +21,7 @@ export default defineComponent({
     const startAnimation = () => {
       isPlaying.value = true;
       currentStep.value = 0;
-      timer && window.clearInterval(timer);
+      if (timer) window.clearInterval(timer);
       timer = window.setInterval(() => {
         if (currentStep.value < steps.length - 1) {
           currentStep.value += 1;
@@ -33,7 +33,7 @@ export default defineComponent({
 
     const stopAnimation = () => {
       isPlaying.value = false;
-      timer && window.clearInterval(timer);
+      if (timer) window.clearInterval(timer);
       timer = null;
     };
 
@@ -46,7 +46,7 @@ export default defineComponent({
     const goDeploy = () => router.push({ name: 'Deploy' });
 
     onBeforeUnmount(() => {
-      timer && window.clearInterval(timer);
+      if (timer) window.clearInterval(timer);
     });
 
     return {
