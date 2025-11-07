@@ -42,7 +42,7 @@ export default defineComponent({
       else startAnimation();
     };
 
-    const goLogin = () => router.push({ name: 'login' });
+    const goLogin = () => router.push({ name: 'Login' });
     const goDeploy = () => router.push({ name: 'Deploy' });
 
     onBeforeUnmount(() => {
