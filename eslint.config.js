@@ -24,6 +24,7 @@ export default [
         window: true,
         document: true,
         console: true,
+        localStorage: true,
       },
     },
     plugins: {
