@@ -3,6 +3,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive, computed, onUnmounted } from 'vue';
+import { deploy } from '@/api/deploy';
 
 type EnvOption = 'dev' | 'prod' | 'stage';
 
@@ -201,8 +202,7 @@ export default defineComponent({
       currentStepIndex.value = 0;
       try {
         const payload = buildPayload();
-        // 실제 호출 예시:
-        // await apiClient.post('/deploy/dispatch', payload)
+        await deploy(payload);
 
         const result = await simulateDeployment();
         lastResult.value = result;
